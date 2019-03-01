@@ -27,7 +27,7 @@ class SignupPage extends React.Component {
                 <View style={styles.overLay}>
                     <View style={styles.loginHeader}>
                         <View>
-                            <Text h1 style={{color: '#fff'}}>Schock</Text>
+                            <Text h1 style={{color: '#FF6D00'}}>Schock</Text>
                             <Text style={{color: '#bebebe', fontSize: 14}}>lorem lorem lorem</Text>
                         </View>
                     </View>
@@ -38,14 +38,18 @@ class SignupPage extends React.Component {
                                 key={name}
                                 onChangeText={text => this.handleInput(name, text)}
                                 secureTextEntry={secure}
-                                underlineColorAndroid="#1976D2"
+                                underlineColorAndroid="#FF6D00"
+                                placeholder={title}
+                                placeholderTextColor="#FF6D00"
                             />)
                         }
-                        <View>
+                        <View style={{marginTop:10}}>
                             <View><Button title="login" onPress={_ => this.moveTo()}/></View>
                             <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'center', marginTop: 10}}>
                                 <View><Text style={{color: '#fff'}}>Don't have an account ?</Text></View>
-                                <View><Rnbutton buttonStyle={{marginLeft: 10}} title="register" type="clear" onPress={_ => this.moveTo()}/></View>
+                                <View><Rnbutton buttonStyle={{marginLeft: 10}} title="register" type="clear"
+                                                disabled={!this.state.inputs.reduce((acc,i) => acc && i.value , true)}
+                                                onPress={_ => this.moveTo()}/></View>
                             </View>
                         </View>
                     </View>

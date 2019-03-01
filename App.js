@@ -38,12 +38,6 @@ export default class App extends Component<Props> {
         })
     }
     render() {
-
-        const navigationView = (
-            <View style={{flex: 1, backgroundColor: '#fff'}}>
-                <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-            </View>
-        );
         const {activePage}= this.state;
         return (
             <ThemeProvider>
@@ -59,7 +53,7 @@ export default class App extends Component<Props> {
                     />
                     {activePage  === 'signup'&& <SignupPage navigate={this.setActivePage}/>}
                     {activePage === 'listview' && <MoviesList navigate={this.setActivePage}/>}
-                    {activePage ==='singleview' && <Movieview movieData={this.state.data}/>}
+                    {activePage ==='singleview' && <Movieview navigate={this.setActivePage} movieData={this.state.data}/>}
                 </DrawerLayoutAndroid>
             </ThemeProvider>
         );
@@ -84,7 +78,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     appBar: {
-        backgroundColor: '#7B1FA2',
+        backgroundColor: '#FF6D00',
         height: 60,
     }
 });
