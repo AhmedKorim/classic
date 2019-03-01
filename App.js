@@ -12,6 +12,7 @@ import {Platform, StyleSheet, Text, ToolbarAndroid, View} from 'react-native';
 import {DrawerLayoutAndroid} from 'react-native';
 import {ThemeProvider} from "react-native-elements";
 import DrawerContent from "./src/Components/DrawerContent/DrawerContent";
+import MoviesList from "./src/Components/ListView/List";
 import SignupPage from "./src/Components/SignupPage/SignupPage";
 
 const instructions = Platform.select({
@@ -41,7 +42,7 @@ export default class App extends Component<Props> {
                         title="Classic"
                         titleColor="#fff"
                     />
-                    <SignupPage/>
+                    <MoviesList/>
                 </DrawerLayoutAndroid>
             </ThemeProvider>
         );

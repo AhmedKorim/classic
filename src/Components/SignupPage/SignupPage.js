@@ -34,7 +34,7 @@ class SignupPage extends React.Component {
                                 key={name}
                                 onChangeText={text => this.handleInput(name, text)}
                                 secureTextEntry={secure}
-                                underlineColorAndroid="#ee4f94"
+                                underlineColorAndroid="#1976D2"
                             />)
                         }
                         <View>

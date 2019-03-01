@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, DrawerLayoutAndroid, ImageBackground} from 'react-native';
-import {Button} from "react-native-elements";
+import {Button, Divider} from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialIcons";
 class DrawerContent extends React.Component {
     state = {
@@ -22,6 +22,7 @@ class DrawerContent extends React.Component {
                 <ImageBackground imageStyle={{ resizeMode:"contain" }} source={require('../../../assets/images/mai.png')} style={{width:'100%',height:'100%'}}/>
             </View>
             <View style={styles.appMenu}>
+                <Divider/>
                 {this.state.buttons.map(button =>  <Button  buttonStyle={styles.buttons} title={button.title} key={button.title} ponPress={_ => void 0} type="clear"
                                                         icon={<Icon
                                                             name={button.icon}
