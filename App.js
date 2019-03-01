@@ -8,43 +8,65 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, ToolbarAndroid, View} from 'react-native';
+import {DrawerLayoutAndroid} from 'react-native';
+import {ThemeProvider} from "react-native-elements";
+import DrawerContent from "./src/Components/DrawerContent/DrawerContent";
+import SignupPage from "./src/Components/SignupPage/SignupPage";
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+    android:
+        'Double tap R on your keyboard to reload,\n' +
+        'Shake or press menu button for dev menu',
 });
 
 type Props = {};
 export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+    render() {
+        const navigationView = (
+            <View style={{flex: 1, backgroundColor: '#fff'}}>
+                <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+            </View>
+        );
+        return (
+            <ThemeProvider>
+                <DrawerLayoutAndroid
+                    drawerWidth={300}
+                    drawerPosition={DrawerLayoutAndroid.positions.Left}
+                    renderNavigationView={() => <DrawerContent/>}
+                >
+                    <ToolbarAndroid
+                        style={styles.appBar}
+                        title="Classic"
+                        titleColor="#fff"
+                    />
+                    <SignupPage/>
+                </DrawerLayoutAndroid>
+            </ThemeProvider>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+    appBar: {
+        backgroundColor: '#7B1FA2',
+        height: 60,
+    }
 });
