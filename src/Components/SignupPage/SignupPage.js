@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, TextInput, View, StyleSheet, ImageBackground} from "react-native";
-import {Overlay, Text ,Button as Rnbutton} from "react-native-elements";
+import {Overlay, Text, Button as Rnbutton} from "react-native-elements";
 
 class SignupPage extends React.Component {
     state = {
@@ -16,6 +16,10 @@ class SignupPage extends React.Component {
             inputs: this.state.inputs.map(i => i.name === name ? {...i, value: text} : i)
         })
     }
+    moveTo = () => {
+        console.log('sdf');
+        this.props.navigate('listview', null)
+    }
 
     render() {
         return (
@@ -23,7 +27,7 @@ class SignupPage extends React.Component {
                 <View style={styles.overLay}>
                     <View style={styles.loginHeader}>
                         <View>
-                            <Text h1 style={{color: '#fff'}}>Classic</Text>
+                            <Text h1 style={{color: '#fff'}}>Schock</Text>
                             <Text style={{color: '#bebebe', fontSize: 14}}>lorem lorem lorem</Text>
                         </View>
                     </View>
@@ -38,10 +42,10 @@ class SignupPage extends React.Component {
                             />)
                         }
                         <View>
-                            <View><Button title="login" onPress={_ => void 0}/></View>
-                            <View style={{flexDirection:'row' ,alignItems:"center" , justifyContent:'center',marginTop:10}}>
+                            <View><Button title="login" onPress={_ => this.moveTo()}/></View>
+                            <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'center', marginTop: 10}}>
                                 <View><Text style={{color: '#fff'}}>Don't have an account ?</Text></View>
-                                <View><Rnbutton buttonStyle={{marginLeft:10}} title="register"  type="clear" onPress={_ => void 0}/></View>
+                                <View><Rnbutton buttonStyle={{marginLeft: 10}} title="register" type="clear" onPress={_ => this.moveTo()}/></View>
                             </View>
                         </View>
                     </View>

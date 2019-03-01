@@ -19,7 +19,7 @@ class Movie extends React.Component {
                         <Text style={{color:'#b4b4b4',marginTop:10,padding:5}}>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aperiam deleniti hic incidunt minus molestias praesentium quis quisquam, rem!
                         </Text>
-                <Button type="solid" title="Read More" buttonStyle={{width:100,height:30 , padding:0}} titleStyle={{fontSize:12}}/>
+                <Button type="solid" title="Read More" buttonStyle={{width:100,height:30 , padding:0}} titleStyle={{fontSize:12}} onPress={_ => this.props.navigate('singleview',movieData)}/>
                     </View>
                 </View>
             </View>

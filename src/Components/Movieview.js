@@ -6,18 +6,19 @@ class Movieview extends React.Component {
     render() {
         let width = Dimensions.get('window').width
         let height = Dimensions.get('window').height
+        const {movieData} = this.props;
         return (<View style={{flex: 1, backgroundColor: 'transparent'}}>
                 <View>
                     <Image style={{height: height, width: width, position: 'absolute', top: 0, left: 0}}
-                           source={{uri: 'https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg'}}/>
+                           source={{uri:movieData.Poster}}/>
                 </View>
                 <ScrollView style={{flex: 1}}>
                     <View>
-                        <Text h3 style={{textAlign: 'center', color: '#fff', marginTop: 20}}>Batman</Text>
+                        <Text h3 style={{textAlign: 'center', color: '#fff', marginTop: 20}}>{movieData.Title}</Text>
                         <View style={{height: 300}}/>
                         <View style={{backgroundColor:'#fff' ,flex:1,padding:20}}>
-                            <Text h4 style={{textAlign: 'left', color: '#15161d'}}>About Batman</Text>
-                            <Text style={{textAlign:'left',color:'#15161d' ,marginTop:15}}>Movies Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse possimus recusandae sequi!</Text>
+                            <Text h4 style={{textAlign: 'left', color: '#15161d'}}>About {movieData.Title}</Text>
+                            <Text style={{textAlign:'left',color:'#15161d' ,marginTop:15}}>{movieData.Type} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse possimus recusandae sequi!</Text>
                             <Text style={{textAlign:'left',color:'#15161d' ,marginTop:5}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, commodi cum, delectus doloremque dolorum, eligendi enim fuga ipsa iusto minima nihil nobis non perferendis quae quas rerum ullam voluptas voluptatibus.</Text>
                             <View style={{height:300}}/>
                         </View>

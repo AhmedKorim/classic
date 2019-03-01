@@ -28,7 +28,7 @@ class MoviesList extends React.Component {
         return (
             <ScrollView>
                 {
-                    this.state.movies.map(movie => <Movie key={movie.imdbID} movieData={movie}/>)
+                    this.state.movies.map(movie => <Movie key={movie.imdbID} movieData={movie} navigate={this.props.navigate}/>)
                 }
             </ScrollView>
         )

@@ -25,12 +25,26 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+    state = {
+        activePage:'signup',
+        data:null
+    }
+    setActivePage = (page,data)=>{
+        console.log(page);
+        this.setState({
+            activePage:page,
+            data
+        })
+    }
     render() {
+
         const navigationView = (
             <View style={{flex: 1, backgroundColor: '#fff'}}>
                 <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
             </View>
         );
+        const {activePage}= this.state;
         return (
             <ThemeProvider>
                 <DrawerLayoutAndroid
@@ -40,10 +54,12 @@ export default class App extends Component<Props> {
                 >
                     <ToolbarAndroid
                         style={styles.appBar}
-                        title="Classic"
+                        title="Schock"
                         titleColor="#fff"
                     />
-                    <Movieview/>
+                    {activePage  === 'signup'&& <SignupPage navigate={this.setActivePage}/>}
+                    {activePage === 'listview' && <MoviesList navigate={this.setActivePage}/>}
+                    {activePage ==='singleview' && <Movieview movieData={this.state.data}/>}
                 </DrawerLayoutAndroid>
             </ThemeProvider>
         );
