@@ -1,4 +1,4 @@
-package com.classic;
+package com.ko.schock;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "classic";
+        return "Schock";
     }
 }

@@ -1,4 +1,4 @@
-package com.classic;
+package com.ko.schock;
 
 import android.app.Application;
 
