@@ -38,12 +38,12 @@ class Movieview extends React.Component {
                                 voluptas voluptatibus.</Text>
                             <Text h3 style={{textAlign: 'center', color: '#fff', marginTop: 20}}>{movieData.Title}</Text>
                             <Text h4 style={{textAlign: 'left', color: '#15161d'}}> {movieData.Title} trailer</Text>
-                            <WebView
+                         { movieData.Video ?  <WebView
                                 style={{marginTop: 20, width: '100%', height: 230}}
                                 javaScriptEnabled={true}
                                 domStorageEnabled={true}
                                 source={{uri: movieData.Video}}
-                            />
+                            /> : <Text h4 style={{textAlign: 'center', color: '#E53935',marginTop:40}}>Sorry we couldn't find a trailer for {movieData.Title}</Text>}
                             <View style={{height: 300}}/>
                         </View>
                     </View>
